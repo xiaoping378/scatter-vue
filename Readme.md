@@ -10,7 +10,7 @@ Here is the backend project: [Scattellet](https://github.com/EOSEssentials/Scatt
 
 **Clone the repo and install dependencies.**
 
-`git clone https://github.com/EOSEssentials/Scattellet`
+`git clone https://github.com/xiaoping378/scatter-vue.git`
 
 **Cd into the project.**
 
@@ -24,7 +24,7 @@ Here is the backend project: [Scattellet](https://github.com/EOSEssentials/Scatt
 
 **Serve the development environment.**
 
-`npm run serve`  this will start a development server.
+`npm run build && npm run serve`  this will start a development server.
 
 **Open in browser.**
 
