@@ -57,9 +57,10 @@
 
     const network = {
         blockchain:'eos',
-        host:'nodes.get-scatter.com',
+        protocol: "http",
+        host:'jungle2.cryptolions.io',
         port:location.protocol === 'https:' ? 443 : 80,
-        chainId:'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906'
+        chainId:'e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473'
     };
 
     export default {
@@ -116,7 +117,8 @@
                 this.transferring = true;
                 this.transferred = false;
                 const scateos = this.scatter.eos(network, Eos, {chainId:network.chainId}, location.protocol.replace(':', ''));
-                const contract = await scateos.contract(this.tokenAddress);
+                const eosOptions = { expireInSeconds:60 };
+                const contract = this.scatter.eos(network, Eos, eosOptions);
                 const transferred = await contract.transfer(this.account.name, this.recipient, `${this.amount} ${this.symbol}`, this.memo).catch(error => {
                     if(typeof error === 'object') this.error = error.message;
                     else this.error = JSON.parse(error).error.details[0].message.replace('condition: assertion failed: ', '');
